@@ -1367,4 +1367,3 @@ Reading model parameters from ../models/translate.ckpt-30000
 > -TOP-( -VERB- ARG0( NE_country-0 )ARG0 ARG1( transfer-01 ARG1( troop )ARG1 )ARG1 ARG2( person ARG0-of( have-rel-role-91 ARG1( NE_country-1 )ARG1 ARG2( -SURF--1 )ARG2 )ARG0-of )ARG2 time( after op1( -VERB--0 ARG0( -SURF--0 )ARG0 ARG1( -SURF--1 ARG1-of( -VERB--1 )ARG1-of )ARG1 )op1 )time )-TOP-
 > -TOP-( report-01 ARG1( report-01 ARG0( and op1( -VERB--0 ARG1( troop poss( NE_country-0 )poss )ARG1 ARG2( country quant( -CONST--0 )quant )ARG2 )op1 op2( state location( state poss( -RET--0 )poss )location )op2 op3( state mod( state )mod mod( -SURF--0 )mod location( state )location )op3 )ARG1 ARG2( state mod( state )mod location( -SURF--2 op1( -SURF--3 mod( -SURF--2 )mod )op1 )location )ARG2 mod( -SURF--1 )mod )ARG1 )-TOP-
 > -TOP-( end-01 )-TOP-
-> 
