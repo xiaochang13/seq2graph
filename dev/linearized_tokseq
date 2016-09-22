@@ -95,7 +95,7 @@ look the territorial -SURF--0 with -VERB--0 of -SURF--1 @-@ fire up -SURF--2 , w
 it 's time to -VERB--0 ! the -VERB--1 think and policy of high @-@ level decision @-@ make should be -VERB--2
 we should put our effort to develop science and technology ; we will be -VERB--0 if -VERB--1 ; use the limit military -VERB--2 on -SURF--0 and soldier on the -SURF--1 line !
 -SURF--0 , if the NE_island-0 be ours , +-CONST--0 -VERB--0 it with action
--VERB--0 the post of NE_person-0 ( -SURF--0 ) at DATE-0 @:@ -CONST--0 on DATE-1 DATE-2 , DATE-3
+-VERB--0 the post of NE_person-0 ( -SURF--0 ) at DATE-0 DATE-1
 NE_country-0 can not be so " -SURF--0 -SURF--1 mean
 this be worth -VERB--0 a little !
 good thing also need to be -VERB--0 . -VERB--1 -SURF--0 , -SURF--1 direct , -VERB--2 once and have free -SURF--2 high @-@ -SURF--3 internet access , the latest technology product . easy to -VERB--3 and also high @-@ -SURF--4 and -VERB--4 . you will be able to have free high @-@ -SURF--5 internet access -SURF--6 you go with a -VERB--5 -SURF--7 as big as a -VERB--6 ! people who be -VERB--7 certainly -SURF--8 to -VERB--8 life better , i wish you a -VERB--9 life , -VERB--10 for -VERB--11 read ! -VERB--12 -SURF--9 -SURF--10 -SURF--11
@@ -1162,7 +1162,7 @@ the men have be warn -VERB--0 by the SURF_VERBAL-0 not to -VERB--1 or write -VER
 -SURF--0 say the men do not want any -SURF--1 organize -VERB--0 -VERB--1 .
 the men be try to stop any organized call for -VERB--0 .
 -SURF--0 say police have illegally -VERB--0 the men 's home without -SURF--1 and seize -VERB--1 , -SURF--2 and computer .
-this be after DATE-0 , DATE-1 .
+this be after DATE-0 .
 neither -SURF--0 nor family member have be allow to see the arrest men .
 -SURF--0 do not know ENT_amr-unknown-0 they be not allow -SURF--1 or charge publicly or show -VERB--0 or -VERB--1 if they be -VERB--2 -SURF--2 crime .
 the arrest be the ENT_ordinal-entity-0 to target -SURF--0 -SURF--1 since -VERB--0 @-@ -SURF--2 -SURF--3 NE_person-0 take the -SURF--4 in DATE-0 and -SURF--5 -SURF--6 and -CONST--0 other lead -SURF--7 who have spend -CONST--1 month in prison .
@@ -1300,7 +1300,7 @@ NE_country-0 's foreign minister , -SURF--0 say that , he -VERB--0 the NE_milita
 -SURF--0 say that NE_military-0 's decision be " -VERB--0 and necessary " .
 but , as an -SURF--0 -SURF--1 of military measure , -VERB--0 a -VERB--1 be also necessary .
 he -VERB--0 the NE_organization-0 , the NE_organization-1 , NE_country-0 and NE_country-1 to put -SURF--0 a new joint proposal to force both war party -SURF--1 NE_country-2 to return to the negotiate -SURF--2 .
-on the -CONST--0 nd , the -SURF--0 NE_military-0 country ask the arm force -SURF--1 NE_country-0 people of NE_country-1 to -VERB--0 to a place -CONST--1 -SURF--2 -SURF--3 -SURF--4 city before DATE-0 on DATE-1 th ( NE_person-0 ) , and to -VERB--1 that NE_organization-0 -SURF--5 aid would go -VERB--2 and VERBAL-0 , -SURF--6 NE_military-1 would begin -SURF--7 strike against the NE_country-2 -SURF--8 .
+on the -CONST--0 nd , the -SURF--0 NE_military-0 country ask the arm force -SURF--1 NE_country-0 people of NE_country-1 to -VERB--0 to a place -CONST--1 -SURF--2 -SURF--3 -SURF--4 city before DATE-0 th ( NE_person-0 ) , and to -VERB--1 that NE_organization-0 -SURF--5 aid would go -VERB--2 and VERBAL-0 , -SURF--6 NE_military-1 would begin -SURF--7 strike against the NE_country-2 -SURF--8 .
 ( end )
 NE_publication-0 , NE_city-0 , DATE-0 DATE-1 st , by person_VERBAL-0 NE_person-0
 NE_country-0 's chemical industry be -VERB--0 the -SURF--0 of -VERB--1 to the outside world , and -VERB--2 into the world .
