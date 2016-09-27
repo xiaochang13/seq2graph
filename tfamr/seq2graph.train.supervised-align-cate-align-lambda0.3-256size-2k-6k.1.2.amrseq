@@ -1,0 +1,381 @@
+nohup: ignoring input
+I tensorflow/stream_executor/dso_loader.cc:105] successfully opened CUDA library libcublas.so locally
+I tensorflow/stream_executor/dso_loader.cc:105] successfully opened CUDA library libcudnn.so locally
+I tensorflow/stream_executor/dso_loader.cc:105] successfully opened CUDA library libcufft.so locally
+I tensorflow/stream_executor/dso_loader.cc:105] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:105] successfully opened CUDA library libcurand.so locally
+Preparing WMT data in ../data/1.2
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:102] Found device 0 with properties: 
+name: GeForce GTX TITAN X
+major: 5 minor: 2 memoryClockRate (GHz) 1.076
+pciBusID 0000:82:00.0
+Total memory: 12.00GiB
+Free memory: 11.87GiB
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:126] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:136] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:755] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:82:00.0)
+Creating 1 layers of 256 units.
+Created model with fresh parameters.
+Reading development and training data (limit: 0).
+  reading data line 10000
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16113 get requests, put_count=4938 evicted_count=1000 eviction_rate=0.202511 and unsatisfied allocation rate=0.761807
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 100 to 110
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=10010 evicted_count=10000 eviction_rate=0.999001 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=8011 evicted_count=8000 eviction_rate=0.998627 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=6012 evicted_count=6000 eviction_rate=0.998004 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=4013 evicted_count=4000 eviction_rate=0.996761 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=2014 evicted_count=2000 eviction_rate=0.993049 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16030 evicted_count=12000 eviction_rate=0.748596 and unsatisfied allocation rate=0.750791
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 160 to 176
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=10016 evicted_count=10000 eviction_rate=0.998403 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=8017 evicted_count=8000 eviction_rate=0.99788 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=6019 evicted_count=6000 eviction_rate=0.996843 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=4021 evicted_count=4000 eviction_rate=0.994777 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=2023 evicted_count=2000 eviction_rate=0.988631 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16136 evicted_count=12000 eviction_rate=0.743679 and unsatisfied allocation rate=0.744772
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 256 to 281
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=10025 evicted_count=10000 eviction_rate=0.997506 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=8028 evicted_count=8000 eviction_rate=0.996512 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=6030 evicted_count=6000 eviction_rate=0.995025 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=4033 evicted_count=4000 eviction_rate=0.991818 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=2037 evicted_count=2000 eviction_rate=0.981836 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16302 evicted_count=12000 eviction_rate=0.736106 and unsatisfied allocation rate=0.73534
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 409 to 449
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=10040 evicted_count=10000 eviction_rate=0.996016 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=8044 evicted_count=8000 eviction_rate=0.99453 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=6049 evicted_count=6000 eviction_rate=0.991899 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=5054 evicted_count=5000 eviction_rate=0.989315 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=3059 evicted_count=3000 eviction_rate=0.980713 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=1065 evicted_count=1000 eviction_rate=0.938967 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=15642 evicted_count=11000 eviction_rate=0.703235 and unsatisfied allocation rate=0.715979
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 720 to 792
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=10072 evicted_count=10000 eviction_rate=0.992851 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=8079 evicted_count=8000 eviction_rate=0.990222 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=7087 evicted_count=7000 eviction_rate=0.987724 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=6095 evicted_count=6000 eviction_rate=0.984413 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=5105 evicted_count=5000 eviction_rate=0.979432 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=3115 evicted_count=3000 eviction_rate=0.963082 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=3127 evicted_count=3000 eviction_rate=0.959386 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=2140 evicted_count=2000 eviction_rate=0.934579 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=1154 evicted_count=1000 eviction_rate=0.866551 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16704 evicted_count=11000 eviction_rate=0.658525 and unsatisfied allocation rate=0.6556
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 1694 to 1863
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=15889 evicted_count=10000 eviction_rate=0.629366 and unsatisfied allocation rate=0.645051
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 1863 to 2049
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16091 evicted_count=10000 eviction_rate=0.621465 and unsatisfied allocation rate=0.633571
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 2049 to 2253
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16314 evicted_count=10000 eviction_rate=0.61297 and unsatisfied allocation rate=0.62085
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 2253 to 2478
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16560 evicted_count=10000 eviction_rate=0.603865 and unsatisfied allocation rate=0.606888
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 2478 to 2725
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16829 evicted_count=10000 eviction_rate=0.594212 and unsatisfied allocation rate=0.591561
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 2725 to 2997
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=1299 evicted_count=1000 eviction_rate=0.769823 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=2329 evicted_count=2000 eviction_rate=0.858738 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=4362 evicted_count=4000 eviction_rate=0.917011 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=5398 evicted_count=5000 eviction_rate=0.926269 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 16115 get requests, put_count=16118 evicted_count=7000 eviction_rate=0.434297 and unsatisfied allocation rate=0.461371
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 4823 to 5305
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=3530 evicted_count=3000 eviction_rate=0.849858 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=1641 evicted_count=1000 eviction_rate=0.609385 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 0 get requests, put_count=1776 evicted_count=1000 eviction_rate=0.563063 and unsatisfied allocation rate=0
+global step 200 learning rate 0.5000 step-time 0.95 perplexity 187.36
+  eval: bucket 0 perplexity 158.44
+global step 400 learning rate 0.5000 step-time 0.92 perplexity 102.96
+  eval: bucket 0 perplexity 100.50
+global step 600 learning rate 0.5000 step-time 0.92 perplexity 53.10
+  eval: bucket 0 perplexity 54.63
+global step 800 learning rate 0.5000 step-time 0.92 perplexity 32.33
+  eval: bucket 0 perplexity 34.14
+global step 1000 learning rate 0.5000 step-time 0.92 perplexity 23.05
+  eval: bucket 0 perplexity 28.68
+global step 1200 learning rate 0.5000 step-time 0.92 perplexity 18.45
+  eval: bucket 0 perplexity 29.54
+global step 1400 learning rate 0.5000 step-time 0.92 perplexity 15.55
+  eval: bucket 0 perplexity 22.13
+global step 1600 learning rate 0.5000 step-time 0.92 perplexity 13.66
+  eval: bucket 0 perplexity 19.34
+global step 1800 learning rate 0.5000 step-time 0.92 perplexity 12.20
+  eval: bucket 0 perplexity 16.99
+global step 2000 learning rate 0.5000 step-time 0.92 perplexity 11.35
+  eval: bucket 0 perplexity 18.63
+global step 2200 learning rate 0.5000 step-time 0.92 perplexity 10.71
+  eval: bucket 0 perplexity 18.61
+global step 2400 learning rate 0.5000 step-time 0.92 perplexity 10.21
+  eval: bucket 0 perplexity 15.08
+global step 2600 learning rate 0.5000 step-time 0.92 perplexity 9.79
+  eval: bucket 0 perplexity 13.03
+global step 2800 learning rate 0.5000 step-time 0.92 perplexity 9.27
+  eval: bucket 0 perplexity 13.82
+global step 3000 learning rate 0.5000 step-time 0.92 perplexity 9.00
+  eval: bucket 0 perplexity 15.44
+global step 3200 learning rate 0.5000 step-time 0.91 perplexity 8.74
+  eval: bucket 0 perplexity 16.60
+global step 3400 learning rate 0.5000 step-time 0.92 perplexity 8.47
+  eval: bucket 0 perplexity 14.73
+global step 3600 learning rate 0.5000 step-time 0.92 perplexity 8.20
+  eval: bucket 0 perplexity 14.07
+global step 3800 learning rate 0.5000 step-time 0.92 perplexity 8.04
+  eval: bucket 0 perplexity 13.38
+global step 4000 learning rate 0.5000 step-time 0.92 perplexity 7.96
+  eval: bucket 0 perplexity 12.62
+global step 4200 learning rate 0.5000 step-time 0.91 perplexity 7.75
+  eval: bucket 0 perplexity 13.14
+global step 4400 learning rate 0.5000 step-time 0.91 perplexity 7.58
+  eval: bucket 0 perplexity 17.90
+global step 4600 learning rate 0.5000 step-time 0.91 perplexity 7.41
+  eval: bucket 0 perplexity 12.55
+global step 4800 learning rate 0.5000 step-time 0.91 perplexity 7.36
+  eval: bucket 0 perplexity 12.55
+global step 5000 learning rate 0.5000 step-time 0.91 perplexity 7.16
+  eval: bucket 0 perplexity 12.36
+global step 5200 learning rate 0.5000 step-time 0.91 perplexity 7.08
+  eval: bucket 0 perplexity 13.70
+global step 5400 learning rate 0.5000 step-time 0.91 perplexity 6.99
+  eval: bucket 0 perplexity 11.50
+global step 5600 learning rate 0.5000 step-time 0.92 perplexity 6.83
+  eval: bucket 0 perplexity 11.18
+global step 5800 learning rate 0.5000 step-time 0.92 perplexity 6.79
+  eval: bucket 0 perplexity 12.46
+global step 6000 learning rate 0.5000 step-time 0.91 perplexity 6.73
+  eval: bucket 0 perplexity 14.98
+global step 6200 learning rate 0.5000 step-time 0.91 perplexity 6.57
+  eval: bucket 0 perplexity 11.97
+global step 6400 learning rate 0.5000 step-time 0.91 perplexity 6.50
+  eval: bucket 0 perplexity 14.99
+global step 6600 learning rate 0.5000 step-time 0.91 perplexity 6.48
+  eval: bucket 0 perplexity 15.68
+global step 6800 learning rate 0.5000 step-time 0.91 perplexity 6.37
+  eval: bucket 0 perplexity 15.03
+global step 7000 learning rate 0.5000 step-time 0.91 perplexity 6.28
+  eval: bucket 0 perplexity 13.74
+global step 7200 learning rate 0.5000 step-time 0.91 perplexity 6.24
+  eval: bucket 0 perplexity 11.48
+global step 7400 learning rate 0.5000 step-time 0.91 perplexity 6.15
+  eval: bucket 0 perplexity 12.64
+global step 7600 learning rate 0.5000 step-time 0.91 perplexity 6.13
+  eval: bucket 0 perplexity 12.87
+global step 7800 learning rate 0.5000 step-time 0.91 perplexity 6.09
+  eval: bucket 0 perplexity 13.67
+global step 8000 learning rate 0.5000 step-time 0.91 perplexity 5.91
+  eval: bucket 0 perplexity 12.33
+global step 8200 learning rate 0.5000 step-time 0.91 perplexity 5.87
+  eval: bucket 0 perplexity 12.36
+global step 8400 learning rate 0.5000 step-time 0.91 perplexity 5.90
+  eval: bucket 0 perplexity 11.46
+global step 8600 learning rate 0.5000 step-time 0.91 perplexity 5.83
+  eval: bucket 0 perplexity 13.89
+global step 8800 learning rate 0.5000 step-time 0.91 perplexity 5.75
+  eval: bucket 0 perplexity 12.90
+global step 9000 learning rate 0.5000 step-time 0.91 perplexity 5.73
+  eval: bucket 0 perplexity 12.03
+global step 9200 learning rate 0.5000 step-time 0.91 perplexity 5.66
+  eval: bucket 0 perplexity 12.32
+global step 9400 learning rate 0.5000 step-time 0.91 perplexity 5.61
+  eval: bucket 0 perplexity 10.80
+global step 9600 learning rate 0.5000 step-time 0.91 perplexity 5.62
+  eval: bucket 0 perplexity 10.82
+global step 9800 learning rate 0.5000 step-time 0.91 perplexity 5.52
+  eval: bucket 0 perplexity 11.39
+global step 10000 learning rate 0.5000 step-time 0.91 perplexity 5.49
+  eval: bucket 0 perplexity 9.88
+global step 10200 learning rate 0.5000 step-time 0.91 perplexity 5.44
+  eval: bucket 0 perplexity 13.96
+global step 10400 learning rate 0.5000 step-time 0.91 perplexity 5.42
+  eval: bucket 0 perplexity 13.20
+global step 10600 learning rate 0.5000 step-time 0.91 perplexity 5.36
+  eval: bucket 0 perplexity 11.63
+global step 10800 learning rate 0.5000 step-time 0.91 perplexity 5.24
+  eval: bucket 0 perplexity 14.17
+global step 11000 learning rate 0.5000 step-time 0.91 perplexity 5.27
+  eval: bucket 0 perplexity 13.15
+global step 11200 learning rate 0.5000 step-time 0.91 perplexity 5.24
+  eval: bucket 0 perplexity 10.35
+global step 11400 learning rate 0.5000 step-time 0.91 perplexity 5.20
+  eval: bucket 0 perplexity 12.23
+global step 11600 learning rate 0.5000 step-time 0.91 perplexity 5.21
+  eval: bucket 0 perplexity 11.64
+global step 11800 learning rate 0.5000 step-time 0.91 perplexity 5.16
+  eval: bucket 0 perplexity 11.34
+global step 12000 learning rate 0.5000 step-time 0.91 perplexity 5.07
+  eval: bucket 0 perplexity 12.50
+global step 12200 learning rate 0.5000 step-time 0.91 perplexity 5.04
+  eval: bucket 0 perplexity 12.39
+global step 12400 learning rate 0.5000 step-time 0.91 perplexity 5.02
+  eval: bucket 0 perplexity 12.85
+global step 12600 learning rate 0.5000 step-time 0.91 perplexity 5.00
+  eval: bucket 0 perplexity 11.20
+global step 12800 learning rate 0.5000 step-time 0.91 perplexity 4.96
+  eval: bucket 0 perplexity 11.20
+global step 13000 learning rate 0.5000 step-time 0.91 perplexity 4.95
+  eval: bucket 0 perplexity 12.67
+global step 13200 learning rate 0.5000 step-time 0.91 perplexity 4.93
+  eval: bucket 0 perplexity 15.86
+global step 13400 learning rate 0.5000 step-time 0.91 perplexity 4.87
+  eval: bucket 0 perplexity 10.47
+global step 13600 learning rate 0.5000 step-time 0.91 perplexity 4.80
+  eval: bucket 0 perplexity 12.41
+global step 13800 learning rate 0.5000 step-time 0.91 perplexity 4.80
+  eval: bucket 0 perplexity 11.33
+global step 14000 learning rate 0.5000 step-time 0.91 perplexity 4.83
+  eval: bucket 0 perplexity 11.77
+global step 14200 learning rate 0.5000 step-time 0.91 perplexity 4.78
+  eval: bucket 0 perplexity 10.08
+global step 14400 learning rate 0.5000 step-time 0.91 perplexity 4.73
+  eval: bucket 0 perplexity 11.65
+global step 14600 learning rate 0.5000 step-time 0.91 perplexity 4.71
+  eval: bucket 0 perplexity 11.39
+global step 14800 learning rate 0.5000 step-time 0.91 perplexity 4.70
+  eval: bucket 0 perplexity 12.32
+global step 15000 learning rate 0.5000 step-time 0.91 perplexity 4.66
+  eval: bucket 0 perplexity 11.90
+global step 15200 learning rate 0.5000 step-time 0.91 perplexity 4.64
+  eval: bucket 0 perplexity 11.37
+global step 15400 learning rate 0.5000 step-time 0.91 perplexity 4.62
+  eval: bucket 0 perplexity 12.43
+global step 15600 learning rate 0.5000 step-time 0.91 perplexity 4.65
+  eval: bucket 0 perplexity 12.70
+global step 15800 learning rate 0.5000 step-time 0.91 perplexity 4.56
+  eval: bucket 0 perplexity 12.61
+global step 16000 learning rate 0.5000 step-time 0.91 perplexity 4.52
+  eval: bucket 0 perplexity 13.03
+global step 16200 learning rate 0.5000 step-time 0.91 perplexity 4.53
+  eval: bucket 0 perplexity 12.65
+global step 16400 learning rate 0.5000 step-time 0.91 perplexity 4.46
+  eval: bucket 0 perplexity 12.42
+global step 16600 learning rate 0.5000 step-time 0.91 perplexity 4.46
+  eval: bucket 0 perplexity 13.84
+global step 16800 learning rate 0.5000 step-time 0.91 perplexity 4.44
+  eval: bucket 0 perplexity 14.06
+global step 17000 learning rate 0.5000 step-time 0.91 perplexity 4.41
+  eval: bucket 0 perplexity 12.60
+global step 17200 learning rate 0.5000 step-time 0.91 perplexity 4.41
+  eval: bucket 0 perplexity 12.01
+global step 17400 learning rate 0.5000 step-time 0.91 perplexity 4.36
+  eval: bucket 0 perplexity 12.91
+global step 17600 learning rate 0.5000 step-time 0.91 perplexity 4.42
+  eval: bucket 0 perplexity 13.23
+global step 17800 learning rate 0.4750 step-time 0.91 perplexity 4.34
+  eval: bucket 0 perplexity 14.52
+global step 18000 learning rate 0.4750 step-time 0.91 perplexity 4.35
+  eval: bucket 0 perplexity 12.85
+global step 18200 learning rate 0.4750 step-time 0.91 perplexity 4.29
+  eval: bucket 0 perplexity 16.02
+global step 18400 learning rate 0.4750 step-time 0.91 perplexity 4.27
+  eval: bucket 0 perplexity 12.70
+global step 18600 learning rate 0.4750 step-time 0.91 perplexity 4.23
+  eval: bucket 0 perplexity 13.40
+global step 18800 learning rate 0.4750 step-time 0.91 perplexity 4.22
+  eval: bucket 0 perplexity 14.76
+global step 19000 learning rate 0.4750 step-time 0.91 perplexity 4.19
+  eval: bucket 0 perplexity 10.10
+global step 19200 learning rate 0.4750 step-time 0.91 perplexity 4.27
+  eval: bucket 0 perplexity 14.14
+global step 19400 learning rate 0.4512 step-time 0.91 perplexity 4.15
+  eval: bucket 0 perplexity 11.01
+global step 19600 learning rate 0.4512 step-time 0.91 perplexity 4.13
+  eval: bucket 0 perplexity 13.85
+global step 19800 learning rate 0.4512 step-time 0.91 perplexity 4.18
+  eval: bucket 0 perplexity 10.85
+global step 20000 learning rate 0.4512 step-time 0.91 perplexity 4.14
+  eval: bucket 0 perplexity 13.43
+global step 20200 learning rate 0.4512 step-time 0.91 perplexity 4.11
+  eval: bucket 0 perplexity 13.35
+global step 20400 learning rate 0.4512 step-time 0.91 perplexity 4.10
+  eval: bucket 0 perplexity 13.36
+global step 20600 learning rate 0.4512 step-time 0.91 perplexity 4.10
+  eval: bucket 0 perplexity 13.63
+global step 20800 learning rate 0.4512 step-time 0.91 perplexity 4.06
+  eval: bucket 0 perplexity 13.00
+global step 21000 learning rate 0.4512 step-time 0.91 perplexity 4.08
+  eval: bucket 0 perplexity 14.56
+global step 21200 learning rate 0.4512 step-time 0.91 perplexity 4.03
+  eval: bucket 0 perplexity 11.40
+global step 21400 learning rate 0.4512 step-time 0.91 perplexity 4.02
+  eval: bucket 0 perplexity 13.44
+global step 21600 learning rate 0.4512 step-time 0.91 perplexity 4.02
+  eval: bucket 0 perplexity 15.70
+global step 21800 learning rate 0.4512 step-time 0.91 perplexity 4.01
+  eval: bucket 0 perplexity 11.97
+global step 22000 learning rate 0.4512 step-time 0.91 perplexity 4.01
+  eval: bucket 0 perplexity 10.86
+global step 22200 learning rate 0.4512 step-time 0.91 perplexity 3.99
+  eval: bucket 0 perplexity 15.65
+global step 22400 learning rate 0.4512 step-time 0.91 perplexity 3.96
+  eval: bucket 0 perplexity 10.68
+global step 22600 learning rate 0.4512 step-time 0.91 perplexity 3.99
+  eval: bucket 0 perplexity 14.03
+global step 22800 learning rate 0.4512 step-time 0.91 perplexity 3.93
+  eval: bucket 0 perplexity 14.66
+global step 23000 learning rate 0.4512 step-time 0.91 perplexity 3.94
+  eval: bucket 0 perplexity 14.75
+global step 23200 learning rate 0.4512 step-time 0.91 perplexity 3.90
+  eval: bucket 0 perplexity 13.69
+global step 23400 learning rate 0.4512 step-time 0.91 perplexity 3.90
+  eval: bucket 0 perplexity 12.72
+global step 23600 learning rate 0.4512 step-time 0.91 perplexity 3.87
+  eval: bucket 0 perplexity 12.99
+global step 23800 learning rate 0.4512 step-time 0.91 perplexity 3.83
+  eval: bucket 0 perplexity 14.02
+global step 24000 learning rate 0.4512 step-time 0.91 perplexity 3.89
+  eval: bucket 0 perplexity 13.89
+global step 24200 learning rate 0.4512 step-time 0.91 perplexity 3.85
+  eval: bucket 0 perplexity 15.76
+global step 24400 learning rate 0.4512 step-time 0.91 perplexity 3.82
+  eval: bucket 0 perplexity 12.71
+global step 24600 learning rate 0.4512 step-time 0.91 perplexity 3.83
+  eval: bucket 0 perplexity 15.90
+global step 24800 learning rate 0.4512 step-time 0.91 perplexity 3.83
+  eval: bucket 0 perplexity 17.64
+global step 25000 learning rate 0.4512 step-time 0.91 perplexity 3.80
+  eval: bucket 0 perplexity 10.71
+global step 25200 learning rate 0.4512 step-time 0.91 perplexity 3.80
+  eval: bucket 0 perplexity 11.26
+global step 25400 learning rate 0.4512 step-time 0.91 perplexity 3.76
+  eval: bucket 0 perplexity 13.97
+global step 25600 learning rate 0.4512 step-time 0.91 perplexity 3.77
+  eval: bucket 0 perplexity 16.28
+global step 25800 learning rate 0.4512 step-time 0.91 perplexity 3.77
+  eval: bucket 0 perplexity 10.81
+global step 26000 learning rate 0.4512 step-time 0.91 perplexity 3.73
+  eval: bucket 0 perplexity 13.63
+global step 26200 learning rate 0.4512 step-time 0.91 perplexity 3.72
+  eval: bucket 0 perplexity 13.33
+global step 26400 learning rate 0.4512 step-time 0.91 perplexity 3.72
+  eval: bucket 0 perplexity 9.77
+global step 26600 learning rate 0.4512 step-time 0.91 perplexity 3.74
+  eval: bucket 0 perplexity 14.40
+global step 26800 learning rate 0.4287 step-time 0.91 perplexity 3.69
+  eval: bucket 0 perplexity 12.78
+global step 27000 learning rate 0.4287 step-time 0.91 perplexity 3.69
+  eval: bucket 0 perplexity 14.42
+global step 27200 learning rate 0.4287 step-time 0.91 perplexity 3.64
+  eval: bucket 0 perplexity 13.03
+global step 27400 learning rate 0.4287 step-time 0.91 perplexity 3.63
+  eval: bucket 0 perplexity 13.78
+global step 27600 learning rate 0.4287 step-time 0.91 perplexity 3.63
+  eval: bucket 0 perplexity 15.43
+global step 27800 learning rate 0.4287 step-time 0.91 perplexity 3.61
+  eval: bucket 0 perplexity 18.00
+global step 28000 learning rate 0.4287 step-time 0.91 perplexity 3.63
+  eval: bucket 0 perplexity 16.23
+global step 28200 learning rate 0.4073 step-time 0.91 perplexity 3.59
+  eval: bucket 0 perplexity 13.56
+global step 28400 learning rate 0.4073 step-time 0.91 perplexity 3.56
+  eval: bucket 0 perplexity 14.34
+global step 28600 learning rate 0.4073 step-time 0.91 perplexity 3.57
+  eval: bucket 0 perplexity 12.00
+global step 28800 learning rate 0.4073 step-time 0.91 perplexity 3.57
+  eval: bucket 0 perplexity 17.12
+global step 29000 learning rate 0.4073 step-time 0.91 perplexity 3.56
+  eval: bucket 0 perplexity 13.74
+global step 29200 learning rate 0.4073 step-time 0.91 perplexity 3.55
+  eval: bucket 0 perplexity 13.90
+global step 29400 learning rate 0.4073 step-time 0.91 perplexity 3.52
+  eval: bucket 0 perplexity 15.05
+global step 29600 learning rate 0.4073 step-time 0.91 perplexity 3.54
+  eval: bucket 0 perplexity 12.39
+global step 29800 learning rate 0.4073 step-time 0.91 perplexity 3.50
+  eval: bucket 0 perplexity 13.36
+global step 30000 learning rate 0.4073 step-time 0.91 perplexity 3.53
+  eval: bucket 0 perplexity 15.05
