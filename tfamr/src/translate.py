@@ -128,8 +128,10 @@ def read_data(source_path, target_path, alignment_path, max_size=None):
             pdb.set_trace()
 
           alignment_dist.append(None) # adding a dummy alignment for eos
-          
-          assert len(target_ids) == len(alignment_dist)
+          #print(len(target_ids))
+          #print(len(alignment_dist))
+          #print(counter)
+          assert len(target_ids) == len(alignment_dist), counter
           for bucket_id, (source_size, target_size) in enumerate(_buckets):
             if len(source_ids) < source_size and len(target_ids) < target_size:
               data_set[bucket_id].append([source_ids, target_ids, alignment_dist])
