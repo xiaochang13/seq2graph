@@ -10,6 +10,7 @@ from collections import OrderedDict, defaultdict
 from constants import *
 from parser import ParserError
 from date_extraction import *
+from util import *
 FLAGS=gflags.FLAGS
 gflags.DEFINE_string("version",'1.0','version for the sequence generated')
 gflags.DEFINE_integer("min_prd_freq",50,"threshold for filtering out predicates")
@@ -394,6 +395,8 @@ class AMR_seq:
             #("SURF", '-SURF-'),  #Surface form non predicate
             ("VERB", '-VERB-\d+'), # predicate
             ("CONST", '"[^"]+"'), # const
+            ("INTERROGATIVE","\s(interrogative|imperative|expressive)(?=[\s\)])"),
+            ("QUANTITY","[0-9][0-9Ee^+\-\.,:]*(?=[\s\)])"),
             ("REENTRANCY", '-RET-'),  #Reentrancy
             ("ENTITY", 'ENT_([^\s()]+)'),  #Entity
             ("NER", 'NE_([^\s()]+)'), #Named entity
@@ -457,6 +460,14 @@ class AMR_seq:
                     #    stack.append((PNODE,nodelabel,nodeconcept))
                     #else:
                     stack.append((PNODE,token.strip(),None))
+                    state = 2
+                elif type in ["INTERROGATIVE","QUANTITY"]:
+                    if currpos + 1 < seq_length and parsed_seq[currpos+1][1] == "LPAR":
+                        nodelabel = register_var(token)
+                        nodeconcept = token
+                        stack.append((PNODE,nodelabel,nodeconcept))
+                    else:                        
+                        stack.append((PNODE,Quantity(token.strip()),None))
                     state = 2
                 elif type == "REENTRANCY":
                     if currpos + 1 < seq_length and parsed_seq[currpos+1][1] == "LPAR":
