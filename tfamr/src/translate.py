@@ -131,7 +131,24 @@ def read_data(source_path, target_path, alignment_path, max_size=None):
           #print(len(target_ids))
           #print(len(alignment_dist))
           #print(counter)
-          assert len(target_ids) == len(alignment_dist), counter
+          try:
+            assert len(target_ids) == len(alignment_dist), counter
+          except:
+            print('Length not match here:')
+            print(source)
+            print(target)
+            print(alignment)
+            print(source_ids)
+            print(target_ids)
+            print(alignment_dist)
+            print("%d %d" % (len(target_ids), len(alignment_dist)))
+
+            source, target, alignment = source_file.readline(), target_file.readline(), alignment_file.readline()
+            source = source.strip()
+            target = target.strip()
+            alignment = alignment.strip()
+            continue
+
           for bucket_id, (source_size, target_size) in enumerate(_buckets):
             if len(source_ids) < source_size and len(target_ids) < target_size:
               data_set[bucket_id].append([source_ids, target_ids, alignment_dist])
@@ -202,7 +219,7 @@ def train():
       start_time = time.time()
       encoder_inputs, decoder_inputs, alignment_inputs, target_weights = model.get_batch(
           train_set, bucket_id)
-      _, step_loss, _ = model.step(sess, encoder_inputs, decoder_inputs, alignment_inputs, 
+      _, step_loss, _ = model.step(sess, encoder_inputs, decoder_inputs, alignment_inputs,
                                    target_weights, bucket_id, False)
       step_time += (time.time() - start_time) / FLAGS.steps_per_checkpoint
       loss += step_loss / FLAGS.steps_per_checkpoint
@@ -224,14 +241,14 @@ def train():
         model.saver.save(sess, checkpoint_path, global_step=model.global_step)
         step_time, loss = 0.0, 0.0
         # Run evals on development set and print their perplexity.
-        
-        for bucket_id in xrange(len(_buckets)):
-          encoder_inputs, decoder_inputs, alignment_inputs, target_weights = model.get_batch(
-              dev_set, bucket_id)
-          _, eval_loss, _ = model.step(sess, encoder_inputs, decoder_inputs, alignment_inputs, 
-                                       target_weights, bucket_id, True)
-          eval_ppx = math.exp(eval_loss) if eval_loss < 300 else float('inf')
-          print("  eval: bucket %d perplexity %.2f" % (bucket_id, eval_ppx))
+
+        #for bucket_id in xrange(len(_buckets)):
+        #  encoder_inputs, decoder_inputs, alignment_inputs, target_weights = model.get_batch(
+        #      dev_set, bucket_id)
+        #  _, eval_loss, _ = model.step(sess, encoder_inputs, decoder_inputs, alignment_inputs,
+        #                               target_weights, bucket_id, True)
+        #  eval_ppx = math.exp(eval_loss) if eval_loss < 300 else float('inf')
+        #  print("  eval: bucket %d perplexity %.2f" % (bucket_id, eval_ppx))
         sys.stdout.flush()
 
 
@@ -274,7 +291,7 @@ def train_early_stop():
     best_step = 0
     patience = int(train_total_size / FLAGS.batch_size) # go over this number of steps(batches) anyway
     patience_increase = 2
-    
+
     while model.global_step.eval() < FLAGS.max_steps and (not done_looping):
 
       # Choose a bucket according to data distribution. We pick a random number
@@ -305,37 +322,37 @@ def train_early_stop():
           sess.run(model.learning_rate_decay_op)
         previous_losses.append(loss)
 
-        
+
         # Save checkpoint and zero timer and loss.
         #checkpoint_path = os.path.join(FLAGS.train_dir, "translate.ckpt")
         #model.saver.save(sess, checkpoint_path, global_step=model.global_step)
         step_time, loss = 0.0, 0.0
-        
+
         # Run evals on development set and print their perplexity.
-        eval_total_ppx = 0.0 # total perplexity in all validation buckets
-        tmp_batch_size = model.batch_size
-        for bucket_id in xrange(len(_buckets)):
-          model.batch_size = len(dev_set[bucket_id]) # eval the whole bucket 
-          encoder_inputs, decoder_inputs, target_weights = model.get_batch(
-              dev_set, bucket_id)
-          _, eval_loss, _ = model.step(sess, encoder_inputs, decoder_inputs,
-                                       target_weights, bucket_id, True)
-          eval_ppx = math.exp(eval_loss) if eval_loss < 300 else float('inf')
-          eval_total_ppx += eval_ppx
-          print("  eval: bucket %d size:%d perplexity %.2f" % (bucket_id, model.batch_size, eval_ppx))
-        model.batch_size = tmp_batch_size
-        if eval_total_ppx < best_eval_total_ppx:
-          if (eval_total_ppx < best_eval_total_ppx * improvement_threshold): # the improvement is good enough
-            patience = max(patience, model.global_step.eval() * patience_increase)
-          best_eval_total_ppx = eval_total_ppx
-          best_step = model.global_step.eval()
+        #eval_total_ppx = 0.0 # total perplexity in all validation buckets
+        #tmp_batch_size = model.batch_size
+        #for bucket_id in xrange(len(_buckets)):
+        #  model.batch_size = len(dev_set[bucket_id]) # eval the whole bucket
+        #  encoder_inputs, decoder_inputs, target_weights = model.get_batch(
+        #      dev_set, bucket_id)
+        #  _, eval_loss, _ = model.step(sess, encoder_inputs, decoder_inputs,
+        #                               target_weights, bucket_id, True)
+        #  eval_ppx = math.exp(eval_loss) if eval_loss < 300 else float('inf')
+        #  eval_total_ppx += eval_ppx
+        #  print("  eval: bucket %d size:%d perplexity %.2f" % (bucket_id, model.batch_size, eval_ppx))
+        #model.batch_size = tmp_batch_size
+        #if eval_total_ppx < best_eval_total_ppx:
+        #  if (eval_total_ppx < best_eval_total_ppx * improvement_threshold): # the improvement is good enough
+        #    patience = max(patience, model.global_step.eval() * patience_increase)
+        #  best_eval_total_ppx = eval_total_ppx
+        #  best_step = model.global_step.eval()
 
-          # save the current checkpoint
-          checkpoint_path = os.path.join(FLAGS.train_dir, FLAGS.amrseq_version,"translate.ckpt")
-          model.saver.save(sess, checkpoint_path, global_step=model.global_step)
+        #  # save the current checkpoint
+        #  checkpoint_path = os.path.join(FLAGS.train_dir, FLAGS.amrseq_version,"translate.ckpt")
+        #  model.saver.save(sess, checkpoint_path, global_step=model.global_step)
 
-        if patience <= model.global_step.eval():
-          done_looping = True
+        #if patience <= model.global_step.eval():
+        #  done_looping = True
         sys.stdout.flush()
 
     print("Optimization complete. Best total validation perplexity %f obtained at global step %d." % (best_eval_total_ppx, best_step))
@@ -347,7 +364,7 @@ def decode():
     model.batch_size = 1  # We decode one sentence at a time.
 
     # Load vocabularies.
-    en_vocab_path = os.path.join(FLAGS.data_dir, FLAGS.amrseq_version, 
+    en_vocab_path = os.path.join(FLAGS.data_dir, FLAGS.amrseq_version,
                                  "vocab%d.en" % FLAGS.en_vocab_size)
     amr_vocab_path = os.path.join(FLAGS.data_dir, FLAGS.amrseq_version,
                                  "vocab%d.amr" % FLAGS.fr_vocab_size)
@@ -370,7 +387,7 @@ def decode():
       encoder_inputs, decoder_inputs, alignment_inputs, target_weights = model.get_batch(
           {bucket_id: [(token_ids, [], [])]}, bucket_id)
       # Get output logits for the sentence.
-      _, _, output_logits = model.step(sess, encoder_inputs, decoder_inputs, alignment_inputs, 
+      _, _, output_logits = model.step(sess, encoder_inputs, decoder_inputs, alignment_inputs,
                                        target_weights, bucket_id, True)
       # print(output_logits)
       # This is a greedy decoder - outputs are just argmaxes of output_logits.

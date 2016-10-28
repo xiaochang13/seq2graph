@@ -361,7 +361,6 @@ def categorizeParallelSequences(amr, tok_seq, all_alignments, unaligned, verb_ma
 
     while stack:
         old_depth = depth
-        #curr_node_index, rel, parent, depth = stack.pop()
         curr_node_index, incoming_edge_index, parent, depth = stack.pop()
         curr_node = amr.nodes[curr_node_index]
         curr_var = curr_node.node_str()
@@ -568,8 +567,13 @@ def linearize_amr(args):
         alignseq_wf = open(align_seq_file, 'w')
 
         for (sent_index, (tok_seq, pos_seq, alignment_seq, amr)) in enumerate(zip(toks, poss, alignments, amr_graphs)):
+            #if sent_index != 2230:
+            #    continue
+            print tok_seq, len(tok_seq)
+            print str(amr)
 
             logger.writeln('Sentence #%d' % (sent_index+1))
+
             logger.writeln(' '.join(tok_seq))
 
             amr.setStats(amr_statistics)
@@ -705,6 +709,18 @@ def linearize_amr(args):
             assert len(tok_seq) == len(pos_seq)
 
             amr_seq, cate_tok_seq, map_seq, align_seq = categorizeParallelSequences(amr, tok_seq, all_alignments, temp_unaligned, verb_map, args.min_prd_freq, args.min_var_freq)
+            amr_seq = ['_'.join(x.split(' ')) if ' ' in x else x for x in amr_seq]
+            try:
+                assert len(align_seq) == len(amr_seq)
+                #print len(align_seq), len(amr_seq)
+                #s = ' '.join(amr_seq)
+                #print s
+                #print len(s.strip().split(' '))
+
+            except:
+                print align_seq, len(align_seq)
+                print amr_seq, len(amr_seq)
+                sys.exit(1)
             print >> amrseq_wf, ' '.join(amr_seq)
             print >> tokseq_wf, ' '.join(cate_tok_seq)
             print >> mapseq_wf, '##'.join(map_seq)  #To separate single space
