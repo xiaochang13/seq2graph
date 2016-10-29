@@ -535,7 +535,7 @@ def linearize_amr(args):
     toks = [line.strip().split() for line in open(tok_file, 'r')]
     poss = [line.strip().split() for line in open(pos_file, 'r')]
 
-    assert len(amr_graphs) == len(alignments) and len(amr_graphs) == len(toks) and len(amr_graphs) == len(poss), '%d %d %d %d %d' % (len(amr_graphs), len(alignments), len(toks), len(poss))
+    assert len(amr_graphs) == len(alignments) and len(amr_graphs) == len(toks) and len(amr_graphs) == len(poss), '%d %d %d %d' % (len(amr_graphs), len(alignments), len(toks), len(poss))
 
     num_self_cycle = 0
     used_sents = 0
@@ -743,8 +743,10 @@ def linearize_amr(args):
             tok_file = os.path.join(args.data_dir, 'token')
 
         ner_file = os.path.join(args.data_dir, 'ner')
+        date_file = os.path.join(args.data_dir, 'date')
 
         all_entities = identify_entities(tok_file, ner_file, mle_map)
+        all_dates = dateMap(date_file)
 
         tokseq_result = os.path.join(args.data_dir, 'linearized_tokseq')
         dev_map_file = os.path.join(args.data_dir, 'cate_map')
@@ -757,10 +759,30 @@ def linearize_amr(args):
             aligned_set = set()
 
             all_spans = []
+            date_spans = all_dates[sent_index]
+            date_set = set()
+
+            #Align dates
+            for (start, end) in date_spans:
+                if end - start > 1:
+                    new_aligned = set(xrange(start, end))
+                    aligned_set |= new_aligned
+                    entity_name = ' '.join(tok_seq[start:end])
+                    if entity_name in mle_map:
+                        entity_typ = mle_map[entity_name]
+                    else:
+                        entity_typ = ('DATE', "date-entity", "NONE")
+                    all_spans.append((start, end, entity_typ))
+                    print 'Date:', start, end
+                else:
+                    date_set.add(start)
+
             #First align multi tokens
             for (start, end, entity_typ) in entities_in_sent:
                 if end - start > 1:
                     new_aligned = set(xrange(start, end))
+                    if len(aligned_set & new_aligned) != 0:
+                        continue
                     aligned_set |= new_aligned
                     entity_name = ' '.join(tok_seq[start:end])
                     if entity_name in mle_map:
@@ -784,10 +806,19 @@ def linearize_amr(args):
                     else:
                         all_spans.append((index, index+1, mle_map[curr_tok]))
                 else:
+
                     if curr_tok[0] in '\"\'.':
                         print 'weird token: %s, %s' % (curr_tok, curr_pos)
                         continue
-                    if curr_pos[0] == 'V':
+                    if index in date_set:
+                        entity_typ = ('DATE', "date-entity", "NONE")
+                        all_spans.append((index, index+1, entity_typ))
+                    elif curr_tok in VERB_LIST:
+                        node_repr = VERB_LIST[curr_tok][0].keys()[0]
+                        entity_typ = ('VERBAL', node_repr, "NONE")
+                        all_spans.append((index, index+1, entity_typ))
+
+                    elif curr_pos[0] == 'V':
                         node_repr = '%s-01' % curr_tok
                         all_spans.append((index, index+1, ('-VERB-', node_repr, "NONE")))
                     else:
@@ -795,6 +826,7 @@ def linearize_amr(args):
                         all_spans.append((index, index+1, ('-SURF-', curr_tok, "NONE")))
 
             all_spans = sorted(all_spans, key=lambda span: (span[0], span[1]))
+            print all_spans
             linearized_tokseq, map_repr_seq = getIndexedForm(all_spans)
 
             print >> tokseq_wf, ' '.join(linearized_tokseq)
@@ -834,6 +866,19 @@ def getIndexedForm(linearized_tokseq):
 #Based on entity mapping from training, NER tagger
 def conceptID(args):
     return
+
+def dateMap(dateFile):
+    dates_in_lines = []
+    for line in open(dateFile):
+        date_spans = []
+        if line.strip():
+            spans = line.strip().split()
+            for sp in spans:
+                start = int(sp.split('-')[0])
+                end = int(sp.split('-')[1])
+                date_spans.append((start, end))
+        dates_in_lines.append(date_spans)
+    return dates_in_lines
 
 #Build the entity map for concept identification
 #Choose either the most probable category or the most probable node repr
