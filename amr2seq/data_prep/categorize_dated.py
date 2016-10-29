@@ -826,7 +826,7 @@ def linearize_amr(args):
                         all_spans.append((index, index+1, ('-SURF-', curr_tok, "NONE")))
 
             all_spans = sorted(all_spans, key=lambda span: (span[0], span[1]))
-            print all_spans
+            #print all_spans
             linearized_tokseq, map_repr_seq = getIndexedForm(all_spans)
 
             print >> tokseq_wf, ' '.join(linearized_tokseq)
@@ -841,7 +841,7 @@ def buildLinearEnt(entity_name, ops):
     return ent_repr
 
 def isSpecial(symbol):
-    for l in ['ENT', 'NE', 'VERB', 'SURF', 'CONST']:
+    for l in ['ENT', 'NE', 'VERB', 'SURF', 'CONST', 'DATE', 'VERBAL']:
         if l in symbol:
             return True
     return False
