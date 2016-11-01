@@ -77,11 +77,13 @@ def build_arg_parser():
                         help='Two files containing AMR pairs. AMRs in each file are separated by a single blank line')
     parser.add_argument('-r', type=int, default=4, help='Restart number (Default:4)')
     parser.add_argument('-v', action='store_true', help='Verbose output (Default:false)')
+    parser.add_argument('-a', action='store_true', help='Error analysis (Default:false)')
     parser.add_argument('--ms', action='store_true', default=False,
                         help='Output multiple scores (one AMR pair a score)' \
                              'instead of a single document-level smatch score (Default: false)')
     parser.add_argument('--pr', action='store_true', default=False,
                         help="Output precision and recall as well as the f-score. Default: false")
+    parser.add_argument('--data_dir', type=str, help='the data directory for printing the error information')
     return parser
 
 
@@ -713,9 +715,27 @@ def main(arguments):
     # sentence number
     sent_num = 1
     # Read amr pairs from two files
+    tok_file = os.path.join(arguments.data_dir, 'token')
+    lemma_file = os.path.join(arguments.data_dir, 'lemma')
+    input_file = os.path.join(arguments.data_dir, 'input')
+    output_file = os.path.join(arguments.data_dir, 'output')
+    map_file = os.path.join(arguments.data_dir, 'cate_map')
+
+    tok_f = open(tok_file, 'r')
+    lemma_f = open(lemma_file, 'r')
+    input_f = open(input_file, 'r')
+    output_f = open(output_file, 'r')
+    map_f = open(map_file, 'r')
+
     while True:
         cur_amr1 = get_amr_line(args.f[0])
         cur_amr2 = get_amr_line(args.f[1])
+        toks = tok_f.readline().strip()
+        lemmas = lemma_f.readline().strip()
+        input = input_f.readline().strip()
+        output = output_f.readline().strip()
+        mapseq = map_f.readline().strip()
+
         if cur_amr1 == "" and cur_amr2 == "":
             break
         if cur_amr1 == "":
@@ -775,6 +795,24 @@ def main(arguments):
             print >> DEBUG_LOG, "Best node mapping alignment:", print_alignment(best_mapping, instance1, instance2)
         test_triple_num = len(instance1) + len(attributes1) + len(relation1)
         gold_triple_num = len(instance2) + len(attributes2) + len(relation2)
+        if arguments.a: #Analysis of all the low smatch sentences
+            # if each AMR pair should have a score, compute and output it here
+            (precision, recall, best_f_score) = compute_f(best_match_num,
+                                                          test_triple_num,
+                                                          gold_triple_num)
+
+            if best_f_score < 0.5:
+                print '###########################'
+                print precision, recall, best_f_score
+                print 'toks: %s' % toks
+                print 'lemmas: %s' % lemmas
+                print 'category map: %s' % mapseq
+                print 'input seq: %s' % input
+                print 'output seq: %s' % output
+                print 'output amr: %s' % cur_amr1
+                print 'ref amr: %s' % cur_amr2
+                print '###########################\n\n'
+
         if not single_score:
             # if each AMR pair should have a score, compute and output it here
             (precision, recall, best_f_score) = compute_f(best_match_num,
@@ -842,5 +880,8 @@ if __name__ == "__main__":
     else:
         import argparse
         parser = build_arg_parser()
+
         args = parser.parse_args()
+        #print args.data_dir
+        #sys.exit(1)
     main(args)
