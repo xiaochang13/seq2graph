@@ -338,7 +338,8 @@ def similarTok(curr_var, tok):
         return True
 
 #Traverse AMR from top down, also categorize the sequence in case of alignment existed
-def categorizeParallelSequences(amr, tok_seq, all_alignments, unaligned, verb_map, pred_freq_thre=50, var_freq_thre=50):
+#def categorizeParallelSequences(amr, tok_seq, all_alignments, unaligned, verb_map, pred_freq_thre=50, var_freq_thre=50):
+def categorizeParallelSequences(amr, tok_seq, pos_seq, all_alignments, unaligned, verb_map, pred_freq_thre=50, var_freq_thre=50, use_pos=False):
 
     old_depth = -1
     depth = -1
@@ -455,6 +456,11 @@ def categorizeParallelSequences(amr, tok_seq, all_alignments, unaligned, verb_ma
 
             if node_index not in nodeindex_to_tokindex:
                 nodeindex_to_tokindex[node_index] = defaultdict(int)
+
+            if use_pos and (end_index - tok_index == 1) and ('ENT' not in aligned_label) \
+                    and ('NE' not in aligned_label): #Should include pos tag info
+                POS = pos_seq[tok_index]
+                aligned_label = '%s-%s' % (POS[0], aligned_label)
 
             indexed_aligned_label = '%s-%d' % (aligned_label, label_to_index[aligned_label])
             nodeindex_to_tokindex[node_index] = indexed_aligned_label
@@ -708,7 +714,8 @@ def linearize_amr(args):
 
             assert len(tok_seq) == len(pos_seq)
 
-            amr_seq, cate_tok_seq, map_seq, align_seq = categorizeParallelSequences(amr, tok_seq, all_alignments, temp_unaligned, verb_map, args.min_prd_freq, args.min_var_freq)
+            #amr_seq, cate_tok_seq, map_seq, align_seq = categorizeParallelSequences(amr, tok_seq, all_alignments, temp_unaligned, verb_map, args.min_prd_freq, args.min_var_freq)
+            amr_seq, cate_tok_seq, map_seq, align_seq = categorizeParallelSequences(amr, tok_seq, pos_seq, all_alignments, temp_unaligned, verb_map, args.min_prd_freq, args.min_var_freq, args.use_pos)
             amr_seq = ['_'.join(x.split(' ')) if ' ' in x else x for x in amr_seq]
             try:
                 assert len(align_seq) == len(amr_seq)
@@ -925,6 +932,7 @@ if __name__ == '__main__':
     argparser.add_argument("--map_file", type=str, help="map file from training")
     argparser.add_argument("--run_dir", type=str, help="the output directory for saving the constructed forest")
     argparser.add_argument("--use_lemma", action="store_true", help="if use lemmatized tokens")
+    argparser.add_argument("--use_pos", action="store_true", help="if to use pos tags in the categories")
     argparser.add_argument("--parallel", action="store_true", help="if to linearize parallel sequences")
     argparser.add_argument("--use_stats", action="store_true", help="if use a built-up statistics")
     argparser.add_argument("--stats_dir", type=str, help="the statistics directory")
